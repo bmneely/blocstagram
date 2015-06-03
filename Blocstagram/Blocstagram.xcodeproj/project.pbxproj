@@ -27,6 +27,7 @@
 		79581DF11B180A5C00C68589 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 79581DF01B180A5C00C68589 /* Media.m */; };
 		79581DF41B180AB500C68589 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 79581DF31B180AB500C68589 /* Comment.m */; };
 		79581DF71B180D7A00C68589 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 79581DF61B180D7A00C68589 /* DataSource.m */; };
+		79581DFA1B181F6600C68589 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79581DF91B181F6600C68589 /* MediaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		79581DF31B180AB500C68589 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		79581DF51B180D7A00C68589 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		79581DF61B180D7A00C68589 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		79581DF81B181F6600C68589 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
+		79581DF91B181F6600C68589 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				79581DD41B17E7D600C68589 /* Images */,
 				79581DE91B17E86B00C68589 /* ImagesTableViewController.h */,
 				79581DEA1B17E86B00C68589 /* ImagesTableViewController.m */,
+				79581DF81B181F6600C68589 /* MediaTableViewCell.h */,
+				79581DF91B181F6600C68589 /* MediaTableViewCell.m */,
 				79581DEF1B180A5C00C68589 /* Media.h */,
 				79581DF01B180A5C00C68589 /* Media.m */,
 				79581DF21B180AB500C68589 /* Comment.h */,
@@ -285,6 +290,7 @@
 			files = (
 				79581DEE1B180A2800C68589 /* User.m in Sources */,
 				79581DF41B180AB500C68589 /* Comment.m in Sources */,
+				79581DFA1B181F6600C68589 /* MediaTableViewCell.m in Sources */,
 				79581DF11B180A5C00C68589 /* Media.m in Sources */,
 				79581DB41B17E70900C68589 /* AppDelegate.m in Sources */,
 				79581DF71B180D7A00C68589 /* DataSource.m in Sources */,
