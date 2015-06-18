@@ -18,6 +18,7 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
 @property (nonatomic, strong, readonly) NSString *accessToken;
+@property (nonatomic, assign) BOOL thereAreNoMoreOlderMessages;
 
 - (void) deleteMediaItem:(Media *)item;
 + (NSString *) instagramClientID;
