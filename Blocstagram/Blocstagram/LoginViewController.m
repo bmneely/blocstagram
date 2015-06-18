@@ -30,21 +30,22 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     
     self.title = NSLocalizedString(@"Login", @"Login");
 
-    NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token", [DataSource instagramClientID], [self redirectURI]];
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    if (url) {
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
-    }
-    
-    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style: UIBarButtonItemStylePlain target:self action:@selector(goHome)];
-    self.navigationItem.leftBarButtonItem = homeButton;
+    [self homePage];
+}
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    if ([self.webView canGoBack]){
+        UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style: UIBarButtonItemStylePlain target:self action:@selector(goHome)];
+        self.navigationItem.leftBarButtonItem = homeButton;
+    }  
 }
 
 - (IBAction)goHome
 {
+    [self homePage];
+}
+
+- (void) homePage {
     NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token", [DataSource instagramClientID], [self redirectURI]];
     NSURL *url = [NSURL URLWithString:urlString];
     
