@@ -8,6 +8,7 @@
 
 #import "MediaFullScreenViewController.h"
 #import "Media.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MediaFullScreenViewController () <UIScrollViewDelegate>
 
@@ -52,7 +53,18 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+    
+    
+    self.shareButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self.shareButton addTarget:self action:@selector(shareClicked)  forControlEvents:UIControlEventTouchUpInside];
 
+    [self.shareButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [[self.shareButton layer] setBorderWidth:2.0f];
+    [[self.shareButton layer] setBorderColor:[UIColor whiteColor].CGColor];
+    [[self.shareButton layer] setCornerRadius:10.0];
+
+    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    [self.scrollView addSubview:self.shareButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,6 +85,10 @@
     
     self.scrollView.minimumZoomScale = minScale;
     self.scrollView.maximumZoomScale = 1;
+    
+    [self.shareButton.titleLabel sizeToFit];
+    self.shareButton.frame = CGRectMake(CGRectGetWidth(self.view.bounds) - self.shareButton.titleLabel.frame.size.width - 50, 50, self.shareButton.titleLabel.frame.size.width + 20, self.shareButton.titleLabel.frame.size.height + 20);
+
 }
 
 - (void)centerScrollView {
@@ -133,6 +149,24 @@
     } else {
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     }
+}
+
+- (IBAction)shareClicked {
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    
+    if (self.media.caption.length > 0) {
+        [itemsToShare addObject:self.media.caption];
+    }
+    
+    if (self.media.image) {
+        [itemsToShare addObject:self.media.image];
+    }
+    
+    if (itemsToShare.count > 0) {
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
+
 }
 
 
