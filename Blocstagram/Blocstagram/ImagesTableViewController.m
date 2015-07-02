@@ -160,4 +160,9 @@
     }
 }
 
+- (void) cell:(MediaTableViewCell *)cell didTwoFingerTap:(UIImageView *)imageView {
+    NSLog(@"I AM HERE!!!");
+    [[DataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
+}
+
 @end
